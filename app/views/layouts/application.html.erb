@@ -2,17 +2,59 @@
 <html>
 <head>
   <title>OmniReceipt</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= render 'shared/imports' %>
 </head>
 <body>
   <div>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <!-- Navbar Header -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              Omni Receipts
+            </a>
+          </div>
+
+          <ul class="nav navbar-nav">
+
+            <!-- Receipts Dropdown -->
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Receipts<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/receipts/new">Add</a>
+              </ul>
+            </li>
+
+          </ul>
+
+          <!-- Session -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">
+              Signed in as <strong><%= current_user.name %></strong>
+            </li>
+            <li>
+              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- Navbar End -->
   </div>
-  <div>
-    <%= yield %>
+
+  <!-- Body Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 panel panel-default well">
+        <%= yield %>
+      </div>
+      <div class="col-md-2"</div>
+    </div>
   </div>
+  <!-- End Body Content -->
 </body>
 </html>

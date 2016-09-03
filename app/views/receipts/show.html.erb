@@ -2,14 +2,56 @@
 
 <dl>
   <dt>Name</dt>
-  <dd><%= @receipt.name %></dd>
+  <dd>
+    <a
+        href="#"
+        id="name"
+        data-type="text"
+        data-pk="<%= @receipt.id %>"
+        data-title="Enter Name"
+        data-url="<%= receipt_path(@receipt) %>"
+        class="editable editable-click"
+        style="display: inline;">
+      <%= @receipt.name %>
+    </a>
+  </dd>
 
   <dt>Store</dt>
-  <dd><%= @receipt.store %></dd>
+  <dd>
+    <a
+        href="#"
+        id="store"
+        data-type="text"
+        data-pk="<%= @receipt.id %>"
+        data-url="<%= receipt_path(@receipt) %>"
+        class="editable editable-click"
+        style="display: inline;">
+      <%= @receipt.store %>
+    </a>
+  </dd>
 
   <dt>Date</dt>
-  <dd><%= @receipt.date %></dd>
+  <dd>
+    <a
+        href="#"
+        id="date"
+        data-type="combodate"
+        data-pk="<%= @receipt.id %>"
+        data-url="<%= receipt_path(@receipt) %>"
+        class="editable editable-click"
+        style="display: inline;">
+      <%= @receipt.date %>
+    </a>
+  </dd>
 </dl>
 
 <%= link_to 'Delete',  receipt_path(@receipt),
     data: { confirm: 'Are you sure you want to delete this receipt?' }, method: :delete %>
+
+<script type="application/javascript">
+  $(document).ready(function() {
+    $.fn.editable.defaults.mode = 'inline';
+    $.fn.editable.defaults.ajaxOptions = {type: "PUT"};
+    $('.editable').editable();
+  });
+</script>

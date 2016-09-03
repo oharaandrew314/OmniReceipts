@@ -18,13 +18,10 @@ class ReceiptsController < ApplicationController
     @receipt = get
   end
 
-  def edit
-    @receipt = get
-  end
-
   def update
-    @receipt = get
-    if @receipt.update(receipt_params)
+    @receipt = Receipt.find(params[:pk])
+    update_params = { params[:name] => params[:value]}
+    if @receipt.update(update_params)
       redirect_to @receipt
     else
       render 'edit'
