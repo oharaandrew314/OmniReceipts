@@ -1,21 +1,6 @@
-<h1>Receipt</h1>
+<h1 id="receipt_name"><%= @receipt.name %></h1>
 
 <dl>
-  <dt>Name</dt>
-  <dd>
-    <a
-        href="#"
-        id="name"
-        data-type="text"
-        data-pk="<%= @receipt.id %>"
-        data-title="Enter Name"
-        data-url="<%= receipt_path(@receipt) %>"
-        class="editable editable-click"
-        style="display: inline;">
-      <%= @receipt.name %>
-    </a>
-  </dd>
-
   <dt>Store</dt>
   <dd>
     <a
@@ -52,6 +37,10 @@
   $(document).ready(function() {
     $.fn.editable.defaults.mode = 'inline';
     $.fn.editable.defaults.ajaxOptions = {type: "PUT"};
-    $('.editable').editable();
+    $('.editable').editable({
+      success: function(response, newValue) {
+        $("#receipt_name").text(response.name);
+      }
+    });
   });
 </script>

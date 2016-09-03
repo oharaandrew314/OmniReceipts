@@ -22,9 +22,9 @@ class ReceiptsController < ApplicationController
     @receipt = Receipt.find(params[:pk])
     update_params = { params[:name] => params[:value]}
     if @receipt.update(update_params)
-      redirect_to @receipt
+      render json: @receipt
     else
-      render 'edit'
+      render status: :bad_request
     end
   end
 
