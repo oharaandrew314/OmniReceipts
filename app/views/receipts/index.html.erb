@@ -1,0 +1,9 @@
+<h1>Receipts</h1>
+
+<ul>
+  <% @receipts.each do |receipt| %>
+    <li><%= link_to receipt.name, receipt_path(receipt) %></li>
+  <%end%>
+</ul>
+
+<%= link_to "Add Receipt", new_receipt_path %>
