@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
   def index
-    @receipts = Receipt.all
+    @receipts = @current_user.receipts
   end
 
   def new
@@ -8,7 +8,7 @@ class ReceiptsController < ApplicationController
   end
 
   def create
-    @receipt = Receipt.new(receipt_params)
+    @receipt = @current_user.receipts.create(receipt_params)
     @receipt.save!
 
     redirect_to @receipt
