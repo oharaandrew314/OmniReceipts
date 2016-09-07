@@ -1,5 +1,6 @@
 class Receipt < ActiveRecord::Base
   belongs_to :user
+  has_many :items
 
   def name
     "#{store} on #{date}"

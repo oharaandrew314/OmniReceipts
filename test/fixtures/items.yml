@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+pizza:
+  name: Delissio Thin Crispy 4 Meat Pizza
+
+cookies:
+  name: PC Decadent Chocolate Chip Cookies

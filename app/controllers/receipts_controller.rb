@@ -20,12 +20,11 @@ class ReceiptsController < ApplicationController
 
   def update
     @receipt = Receipt.find(params[:pk])
+
     update_params = { params[:name] => params[:value]}
-    if @receipt.update(update_params)
-      render json: @receipt
-    else
-      render status: :bad_request
-    end
+    @receipt.update(update_params)
+
+    render json: @receipt
   end
 
   def destroy
