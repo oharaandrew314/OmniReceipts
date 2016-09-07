@@ -3,7 +3,7 @@
 <%= form_for @receipt do |f| %>
   <p>
     <%= f.label :store %><br>
-    <%= f.text_field :store %>
+    <%= f.text_field :store, placeholder: "Enter store name here" %>
   </p>
 
   <p>
@@ -12,7 +12,7 @@
   </p>
 
   <p>
-    <%= f.submit %>
-    <%= link_to "Cancel", receipts_path =%>
+    <%= f.submit "Create", :class => "btn btn-sm btn-success" %>
+    <%= link_to "Cancel", receipts_path, class: "btn btn-sm btn-danger" =%>
   </p>
 <% end %>
