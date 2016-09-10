@@ -1,10 +1,13 @@
 class ReceiptsController < ApplicationController
+  include ReceiptsHelper
+
   def index
     @receipts = @current_user.receipts
   end
 
   def new
     @receipt = Receipt.new
+    @stores = stores @current_user
   end
 
   def create

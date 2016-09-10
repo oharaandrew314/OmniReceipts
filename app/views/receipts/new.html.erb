@@ -3,8 +3,13 @@
 <%= form_for @receipt do |f| %>
   <p>
     <%= f.label :store %><br>
-    <%= f.text_field :store, placeholder: "Enter store name here" %>
+    <%= f.text_field :store, placeholder: "Enter store name here", list: 'stores' %>
   </p>
+  <datalist id="stores">
+    <% @stores.each do |store| %>
+      <option value="<%= store %>"/>
+    <% end %>
+  </datalist>
 
   <p>
     <%= f.label :date %><br>
