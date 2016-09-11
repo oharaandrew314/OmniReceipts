@@ -1,4 +1,4 @@
-<%# render partial: 'form', locals: { receipt: receipt, title: ''} %>
+<%# render partial: 'form', locals: { receipt: receipt, title: '', submit_text: ''} %>
 
 <div id="form-modal" class="modal fade">
   <div class="modal-dialog" role="document">
@@ -17,7 +17,7 @@
         <div class="modal-body">
           <p>
             <%= f.label :store %><br>
-            <%= f.text_field :store, placeholder: "Enter store name here", list: 'stores' %>
+            <%= f.text_field :store, placeholder: "Enter store name here", list: 'stores', :required => true %>
           </p>
           <datalist id="stores">
             <% stores(@current_user).each do |store| %>
@@ -27,7 +27,7 @@
 
           <p>
             <%= f.label :date %><br>
-            <input type='text' name ="receipt[date]" class=" datepicker form-control" />
+            <%= f.date_field :date, class: 'datepicker form-control', :required => true %>
           </p>
         </div>
         <!-- End Modal Body -->

@@ -3,7 +3,6 @@ class ReceiptsController < ApplicationController
 
   def index
     @receipts = @current_user.receipts
-    @stores = stores @current_user
 
     respond_to do |format|
       format.html
@@ -20,16 +19,24 @@ class ReceiptsController < ApplicationController
 
   def show
     @receipt = get
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @receipt }
+    end
   end
 
   def update
     @receipt = get
+
     @receipt.update(receipt_params)
 
-    respond_to do |format|
-      format.html { redirect_to @receipt }
-      format.json { render json: @receipt }
+    receipt_image = params.require(:receipt)['image']
+    if !receipt_image.nil?
+      upload_receipt @receipt, receipt_image
     end
+
+    redirect_to @receipt
   end
 
   def destroy
@@ -45,7 +52,6 @@ class ReceiptsController < ApplicationController
     end
 
     def receipt_params
-      params.require(:receipt).permit(:name, :store, :date)
+      params.require(:receipt).permit(:store, :date)
     end
-
 end

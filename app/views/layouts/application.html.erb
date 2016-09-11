@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OmniReceipt</title>
+  <title>Omni Receipts</title>
   <%= render 'shared/imports' %>
 </head>
 <body>
@@ -17,19 +17,6 @@
               Omni Receipts
             </a>
           </div>
-
-          <ul class="nav navbar-nav">
-
-            <!-- Receipts Dropdown -->
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Receipts<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="<%= receipts_path %>">List</a>
-                <li><a href="<%= new_receipt_path %>">Add</a>
-              </ul>
-            </li>
-
-          </ul>
 
           <!-- Session -->
           <ul class="nav navbar-nav navbar-right">

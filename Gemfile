@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Auth
 gem "omniauth-google-oauth2"
-gem 'google_drive'
+gem 'google-api-client', '~> 0.9'
 
 # UI Resources
 gem 'momentjs-rails', '>= 2.11.1'

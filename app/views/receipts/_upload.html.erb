@@ -1,0 +1,39 @@
+<%# render partial: 'upload', locals: { receipt: receipt } %>
+
+<div id="upload-modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Upload Receipt</h4>
+      </div>
+      <!-- End Modal Header -->
+
+      <%= form_for receipt do |f| %>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <p>
+            <%= f.file_field :image, :required => true %>
+          </p>
+        </div>
+        <!-- End Modal Body -->
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <%= f.submit 'Upload', :class => "btn btn-success" %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        <!-- End Modal Footer -->
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#upload-modal">
+  Upload Receipt
+</button>
