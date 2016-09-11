@@ -3,11 +3,12 @@ class ReceiptsController < ApplicationController
 
   def index
     @receipts = @current_user.receipts
-  end
-
-  def new
-    @receipt = Receipt.new
     @stores = stores @current_user
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @receipts }
+    end
   end
 
   def create
@@ -22,12 +23,13 @@ class ReceiptsController < ApplicationController
   end
 
   def update
-    @receipt = Receipt.find(params[:pk])
+    @receipt = get
+    @receipt.update(receipt_params)
 
-    update_params = { params[:name] => params[:value]}
-    @receipt.update(update_params)
-
-    render json: @receipt
+    respond_to do |format|
+      format.html { redirect_to @receipt }
+      format.json { render json: @receipt }
+    end
   end
 
   def destroy

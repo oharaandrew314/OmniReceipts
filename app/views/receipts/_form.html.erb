@@ -1,0 +1,59 @@
+<%# render partial: 'form', locals: { receipt: receipt, title: ''} %>
+
+<div id="form-modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= title %></h4>
+      </div>
+      <!-- End Modal Header -->
+
+      <%= form_for receipt do |f| %>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <p>
+            <%= f.label :store %><br>
+            <%= f.text_field :store, placeholder: "Enter store name here", list: 'stores' %>
+          </p>
+          <datalist id="stores">
+            <% stores(@current_user).each do |store| %>
+              <option value="<%= store %>"/>
+            <% end %>
+          </datalist>
+
+          <p>
+            <%= f.label :date %><br>
+            <input type='text' name ="receipt[date]" class=" datepicker form-control" />
+          </p>
+        </div>
+        <!-- End Modal Body -->
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <%= f.submit submit_text, :class => "btn btn-success" %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        <!-- End Modal Footer -->
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#form-modal">
+  <%= title %>
+</button>
+
+<script type="text/javascript">
+    $(function () {
+        $('input.datepicker').datetimepicker({
+          format: 'YYYY-MM-DD',
+          defaultDate: '<%= receipt.date %>'
+        });
+    });
+</script>
