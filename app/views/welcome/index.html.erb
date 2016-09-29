@@ -7,6 +7,12 @@
   <body>
     <h1>Welcome to Omni Receipts</h1>
 
-    <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+    <div class="row">
+      <div class="col-md-4">
+        <a class="btn btn-block btn-social btn-google" href="/auth/google_oauth2">
+          <span class="fa fa-google"></span> Sign in with Google
+        </a>
+      </div>
+    </div>
   </body>
 </html>

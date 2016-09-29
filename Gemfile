@@ -30,6 +30,8 @@ gem 'google-api-client', '~> 0.9'
 # UI Resources
 gem 'momentjs-rails', '>= 2.11.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
+gem 'bootstrap-social-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
