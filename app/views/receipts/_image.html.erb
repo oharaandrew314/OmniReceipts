@@ -3,7 +3,7 @@
 <% if receipt.google_image_id.nil? %>
   <div class="alert alert-warning" role="alert">You have not uploaded a receipt yet</div>
 <% else %>
-  <% image_url = "https://drive.google.com/uc?export=view&id=#{receipt.google_image_id}" %>
+  <% image_url = receipt_image_link(receipt) %>
   <a href='<%= image_url %>'>
     <img src='<%= image_url %>' />
   </a>

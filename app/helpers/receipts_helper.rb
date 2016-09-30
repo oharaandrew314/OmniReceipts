@@ -11,4 +11,8 @@ module ReceiptsHelper
     end
     return stores
   end
+
+  def receipt_image_link(receipt)
+    "https://drive.google.com/uc?export=view&id=#{receipt.google_image_id}"
+  end
 end
