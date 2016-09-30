@@ -4,6 +4,10 @@ Drive = Google::Apis::DriveV3 # Alias the module
 
 module ReceiptsHelper
 
+  def receipt_name(receipt)
+    "#{receipt.store} on #{receipt.date}"
+  end
+
   def stores(user)
     stores = Set.new
     user.receipts.each do |receipt|
