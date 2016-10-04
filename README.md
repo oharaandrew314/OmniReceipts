@@ -1,9 +1,16 @@
 # Omni Receipts
 
-## Setup Development Environment (Ubuntu Linux)
+## Setup Development Environment
+
+### Ubuntu Linux 16.04
 
 ```bash
 $ sudo apt install git ruby ruby-dev ruby-railties zlib1g-dev sqlite libsqlite3-dev nodejs
+```
+
+Verify with `ruby -v` that you have at least ruby 2.3 installed.
+
+```bash
 $ mkdir ~/workspace
 $ cd ~/workspace
 $ git clone https://github.com/oharaandrew314/OmniReceipts.git
