@@ -32,6 +32,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
 gem 'bootstrap-social-rails'
 gem "font-awesome-rails"
 
+gem 'figaro'
+
 group :production do
   gem 'pg'
 end
