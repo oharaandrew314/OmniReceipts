@@ -1,5 +1,7 @@
 # Omni Receipts
 
+[![Build Status](https://travis-ci.org/oharaandrew314/OmniReceipts.svg?branch=master)](https://travis-ci.org/oharaandrew314/OmniReceipts)
+
 ## Setup Development Environment
 
 ### Ubuntu Linux 16.04
