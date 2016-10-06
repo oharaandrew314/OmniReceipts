@@ -19,23 +19,17 @@ $ git clone https://github.com/oharaandrew314/OmniReceipts.git
 $ cd OmniReceipts
 $ bundle install --path .bundle
 $ rake db:migrate
+$ bundle exec figaro install
 ```
 
-    
-Create your `config/secrets.yml` and replace the placeholders marked by `< >`
+Open `config/application.yml' created by fiagro and add the required environment variables.
 
 ```yml
 development:
-  secret_key_base: <generate with rake secret>
-  google_client_id: <google_client_id>
-  google_client_secret: <google_client_secret>
-
-test:
-  secret_key_base: <generate with rake secret>
-
-production:
-  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
-```
+  secret_key_base: "<generate with rake secret>"
+  google_client_id: "<...>"
+  google_client_secret: "<...>"
+  ```
 
 ```bash
 $ rails s
