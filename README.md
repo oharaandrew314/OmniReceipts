@@ -32,5 +32,5 @@ development:
   ```
 
 ```bash
-$ rails s
+$ rails s -b 0.0.0.0
 ```
