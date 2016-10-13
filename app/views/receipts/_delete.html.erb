@@ -1,0 +1,37 @@
+<%# render partial: 'delete', locals: { receipt: receipt} %>
+
+<div id="delete-modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete Receipt?</h4>
+      </div>
+      <!-- End Modal Header -->
+
+      <%= form_for receipt do |f| %>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <p>Are you sure you want to delete <b><%= receipt_name(receipt) %></b>?</p>
+        </div>
+        <!-- End Modal Body -->
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <%= f.submit "Delete", :class => "btn btn-danger" %>
+          <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+        </div>
+        <!-- End Modal Footer -->
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
+
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">
+  Delete
+</button>

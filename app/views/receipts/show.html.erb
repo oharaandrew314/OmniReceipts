@@ -11,7 +11,4 @@
 <%= render partial: 'form', locals: { receipt: @receipt, title: 'Edit', submit_text: 'Update' } %>
 <%= render partial: 'upload', locals: { receipt: @receipt } %>
 
-<%= link_to 'Delete',  receipt_path(@receipt),
-    data: { confirm: 'Are you sure you want to delete this receipt?' },
-    method: :delete,
-    class: "btn btn-danger" %>
+<%= render partial: 'delete', locals: { receipt: @receipt} %>
