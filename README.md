@@ -18,7 +18,6 @@ $ sudo apt install git ruby ruby-dev ruby-railties zlib1g-dev sqlite libsqlite3-
 $ git clone https://github.com/oharaandrew314/OmniReceipts.git
 $ cd OmniReceipts
 $ bundle install --path .bundle
-$ rake db:migrate
 $ bundle exec figaro install
 ```
 
@@ -32,5 +31,6 @@ development:
   ```
 
 ```bash
+$ rake db:migrate
 $ rails s -b 0.0.0.0
 ```
