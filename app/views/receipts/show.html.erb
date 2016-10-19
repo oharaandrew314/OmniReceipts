@@ -2,7 +2,7 @@
   <a href="<%=receipts_path %>"><div class="glyphicon glyphicon-chevron-left"/>Back</a>
 </div>
 
-<h1 id="receipt_name"><%= receipt_name(@receipt) %></h1>
+<h1 id="receipt_name"><%= @receipt.name %></h1>
 
 <!-- Image -->
 <%= render partial: 'image', locals: { receipt: @receipt } %>

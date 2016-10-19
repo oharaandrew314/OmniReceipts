@@ -1,7 +1,7 @@
 module ReceiptsHelper
 
   def receipt_name(receipt)
-    "#{receipt.store} on #{receipt.date}"
+    receipt.name
   end
 
   def stores(user)
@@ -13,6 +13,6 @@ module ReceiptsHelper
   end
 
   def receipt_image_link(receipt)
-    "https://drive.google.com/uc?export=view&id=#{receipt.google_image_id}"
+    receipt.image_link
   end
 end

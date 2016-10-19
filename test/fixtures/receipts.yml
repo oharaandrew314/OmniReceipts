@@ -1,5 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-empty:
+storeOnly:
+  store: Walmart
+
+dateOnly:
+  date: 2016-09-03
+
+noImage:
   store: WalMart
   date: 2016-09-03
+
+googleImage:
+  store: Walmart
+  date: 2016-09-03
+  google_image_id: 123
+
+
+

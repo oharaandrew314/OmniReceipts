@@ -3,7 +3,7 @@
 <% if receipt.google_image_id.nil? %>
   <div class="alert alert-warning" role="alert">You have not uploaded a receipt yet</div>
 <% else %>
-  <% image_url = receipt_image_link(receipt) %>
+  <% image_url = receipt.image_link %>
   <a href='<%= image_url %>'>
     <img src='<%= image_url %>' />
   </a>

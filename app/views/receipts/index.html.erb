@@ -2,8 +2,10 @@
 
 <ul>
   <% @receipts.each do |receipt| %>
-    <li><%= link_to receipt_name(receipt), receipt_path(receipt) %></li>
+    <li><%= link_to receipt.name, receipt_path(receipt) %></li>
   <%end%>
 </ul>
 
 <%= render partial: 'form', locals: { receipt: Receipt.new(date: Date.today), title: 'New Receipt', submit_text: 'Create'} %>
+
+<%= render partial: 'upload', locals: { receipt: Receipt.new } %>
