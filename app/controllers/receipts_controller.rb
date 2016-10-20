@@ -1,7 +1,4 @@
-require 'receipts/google_uploader'
-
 class ReceiptsController < ApplicationController
-  include GoogleUploader
 
   def index
     @receipts = @current_user.receipts
@@ -14,6 +11,10 @@ class ReceiptsController < ApplicationController
 
   def create
     @receipt = @current_user.receipts.create(receipt_params)
+    receipt_image = params.require(:receipt)['image']
+    if !receipt_image.nil?
+      @receipt.update_image receipt_image
+    end
     @receipt.save!
 
     redirect_to @receipt
@@ -32,10 +33,9 @@ class ReceiptsController < ApplicationController
     @receipt = get
 
     @receipt.update(receipt_params)
-
     receipt_image = params.require(:receipt)['image']
     if !receipt_image.nil?
-      upload_receipt @receipt, receipt_image
+      @receipt.update_image receipt_image
     end
 
     redirect_to @receipt
