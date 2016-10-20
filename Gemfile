@@ -23,8 +23,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Auth
 gem "omniauth-google-oauth2"
-gem 'google-api-client', '~> 0.9'
-gem 'google-id-token'
 
 # UI Resources
 gem 'momentjs-rails', '>= 2.11.1'
@@ -33,6 +31,8 @@ gem 'bootstrap-social-rails'
 gem "font-awesome-rails"
 
 gem 'figaro'
+
+gem 'aws-sdk', '~> 2'
 
 group :production do
   gem 'pg'

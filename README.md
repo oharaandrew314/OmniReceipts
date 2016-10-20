@@ -26,8 +26,14 @@ Open `config/application.yml' created by fiagro and add the required environment
 ```yml
 development:
   secret_key_base: "<generate with rake secret>"
+
   google_client_id: "<...>"
   google_client_secret: "<...>"
+
+  AWS_ACCESS_KEY_ID: "<...>"
+  AWS_SECRET_ACCESS_KEY: "<...>"
+  AWS_REGION: "<...>"
+  AWS_S3_BUCKET: "<...>"
   ```
 
 ```bash

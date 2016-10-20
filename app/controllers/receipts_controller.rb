@@ -1,7 +1,4 @@
-require 'receipts/google_uploader'
-
 class ReceiptsController < ApplicationController
-  include GoogleUploader
 
   def index
     @receipts = @current_user.receipts
