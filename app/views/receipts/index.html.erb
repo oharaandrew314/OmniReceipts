@@ -6,6 +6,4 @@
   <%end%>
 </ul>
 
-<%= render partial: 'form', locals: { receipt: Receipt.new(date: Date.today), title: 'New Receipt', submit_text: 'Create'} %>
-
 <%= render partial: 'upload', locals: { receipt: Receipt.new } %>
