@@ -5,6 +5,7 @@ class Receipt < ActiveRecord::Base
   belongs_to :user
   has_many :items, dependent: :destroy
   after_initialize :init
+  before_destroy :delete_image
 
   def init
     self.date ||= Date.today
@@ -27,11 +28,7 @@ class Receipt < ActiveRecord::Base
   end
 
   def update_image(receipt_file)
-    if !google_image_id.nil?
-      image_repo.delete(google_image_id)
-      self.google_image_id = nil
-      self.save!
-    end
+    delete_image
 
     new_image_path = "users/#{user.id}/receipts/#{id}/#{receipt_file.original_filename}"
     image_repo.upload(new_image_path, receipt_file.to_io)
@@ -48,5 +45,13 @@ class Receipt < ActiveRecord::Base
     def get_bucket
       s3 = Aws::S3::Resource.new
       bucket = s3.bucket Figaro.env.AWS_S3_BUCKET
+    end
+
+    def delete_image
+      if !google_image_id.nil?
+        image_repo.delete(google_image_id)
+        self.google_image_id = nil
+        self.save!
+      end
     end
 end
