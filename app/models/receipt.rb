@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'awsRepo'
 
 class Receipt < ActiveRecord::Base
 
@@ -12,9 +12,7 @@ class Receipt < ActiveRecord::Base
 
   def image_link
     if not google_image_id.nil?
-      bucket = get_bucket
-      object = bucket.object google_image_id
-      object.presigned_url :get
+      image_repo.link google_image_id
     end
   end
 
@@ -29,20 +27,21 @@ class Receipt < ActiveRecord::Base
   end
 
   def update_image(receipt_file)
-    bucket = get_bucket
-
-    # Delete old file
-    if !self.google_image_id.nil?
-      obj = bucket.object self.google_image_id
-      obj.delete if !obj.nil?
+    if !google_image_id.nil?
+      image_repo.delete(google_image_id)
+      self.google_image_id = nil
+      self.save!
     end
 
-    # Upload new file
-    self.google_image_id = "users/#{user.id}/receipts/#{id}/#{receipt_file.original_filename}"
-    obj = bucket.object self.google_image_id
-    obj.put body: receipt_file.to_io
+    new_image_path = "users/#{user.id}/receipts/#{id}/#{receipt_file.original_filename}"
+    image_repo.upload(new_image_path, receipt_file.to_io)
 
+    self.google_image_id = new_image_path
     self.save!
+  end
+
+  def image_repo
+    @image_repo ||= AwsRepo.new(Figaro.env.AWS_S3_BUCKET)
   end
 
   private
