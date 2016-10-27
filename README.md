@@ -37,6 +37,6 @@ development:
   ```
 
 ```bash
-$ rake db:migrate
+$ rake db:schema:load
 $ rails s -b 0.0.0.0
 ```
