@@ -1,14 +1,26 @@
-<div class="panel-heading">
-  <a href="<%=receipts_path %>" class="btn">Back</a>
+<div class="container-fluid">
+
+  <div class="panel-heading row">
+    <div class="col-md-2 col-xs-6">
+      <a href="<%=receipts_path %>" class="btn">Back</a>
+    </div>
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-2 col-xs-6">
+      <%= render partial: 'upload', locals: { title: 'New Receipt', receipt: Receipt.new } %>
+    </div>
+  </div>
 </div>
 
+
 <h1 id="receipt_name"><%= @receipt.name %></h1>
+
 
 <!-- Image -->
 <%= render partial: 'image', locals: { receipt: @receipt } %>
 <br/>
 
 <%= render partial: 'form', locals: { receipt: @receipt, title: 'Edit', submit_text: 'Update' } %>
-<%= render partial: 'upload', locals: { receipt: @receipt } %>
+<%= render partial: 'upload', locals: { title: 'Update', receipt: @receipt } %>
 
 <%= render partial: 'delete', locals: { receipt: @receipt} %>

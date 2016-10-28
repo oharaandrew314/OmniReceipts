@@ -1,4 +1,4 @@
-<%# render partial: 'upload', locals: { receipt: receipt } %>
+<%# render partial: 'upload', locals: { title: title, receipt: receipt } %>
 
 <div id="upload-modal" class="modal fade">
   <div class="modal-dialog" role="document">
@@ -7,7 +7,7 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Upload Receipt</h4>
+        <h4 class="modal-title" id="myModalLabel"><%= title %></h4>
       </div>
       <!-- End Modal Header -->
 
@@ -35,5 +35,5 @@
 </div>
 
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#upload-modal">
-  Upload Receipt
+  <%= title %>
 </button>
