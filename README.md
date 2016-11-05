@@ -2,6 +2,14 @@
 
 [![Build Status](https://travis-ci.org/oharaandrew314/OmniReceipts.svg?branch=master)](https://travis-ci.org/oharaandrew314/OmniReceipts)
 
+Omni Receipts is a rails receipt scanner app to archive your receipts, so they don't have to take up space in your home.  There is an android app, but it is not yet available on the Google Play Store.
+
+[Production Deployment](https://omnireceipts.andrewohara.io/welcome)
+
+[Staging Deployment](https://omnireceipts.andrewohara.io/welcome)
+
+[Android App Repository](https://github.com/oharaandrew314/Omni-Receipts-Android)
+
 ## Setup Development Environment
 
 ### Requirements
